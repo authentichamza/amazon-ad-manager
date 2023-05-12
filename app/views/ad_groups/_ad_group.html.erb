@@ -1,0 +1,11 @@
+<tr id="<%= dom_id ad_group %>" class= 'text-center'>
+  <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+    <%= ad_group.id %></td>
+  <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= ad_group.name %></td>
+  <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= ad_group.default_bid %></td>
+  <td class="whitespace-nowrap px-4 py-2">
+    <% if action_name != "show" %>
+      <%= link_to "Show Keywords", campaign_ad_group_keywords_path(ad_group.campaign, ad_group), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
+  </td>
+</tr>

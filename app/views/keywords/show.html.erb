@@ -1,0 +1,16 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto justify-center">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <div class=" bg-slate-100 p-10">
+	    <% @keyword.attributes.each do |k, v| %>
+			  <p class="my-5">
+			    <span><strong class="font-medium mb-1"><%= k.capitalize %>:</strong> <%= v %></span>
+			  </p>
+			<% end %>
+    </div>
+	 	<%= link_to 'Back to keywords', request.referer, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>

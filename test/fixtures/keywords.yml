@@ -1,0 +1,35 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  ad_group: one
+  text: MyString
+  bid: 9.99
+  type: 
+  impressions: 1
+  clicks: 1
+  ctr: 9.99
+  spend: 9.99
+  sales: 9.99
+  orders: 1
+  units: 1
+  cr: 9.99
+  acos: 9.99
+  cpc: 9.99
+  roas: 9.99
+
+two:
+  ad_group: two
+  text: MyString
+  bid: 9.99
+  type: 
+  impressions: 1
+  clicks: 1
+  ctr: 9.99
+  spend: 9.99
+  sales: 9.99
+  orders: 1
+  units: 1
+  cr: 9.99
+  acos: 9.99
+  cpc: 9.99
+  roas: 9.99

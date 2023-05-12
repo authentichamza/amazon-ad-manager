@@ -1,0 +1,55 @@
+<div class="w-full">
+  <% if notice.present? %>
+  <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+  <% end %>
+  <div class="flex flex-col items-center justify-center">
+    <%= form_tag import_campaigns_path, multipart: true, class: "max-w-lg w-full" do %>
+    <div class="flex flex-col items-center justify-center px-6 py-4 bg-gray-100 rounded-lg shadow-md border border-gray-200">
+      <label for="file" class="text-lg font-medium text-gray-700 mb-2">Select an XLSX file to import:</label>
+      <div class="relative overflow-hidden">
+        <%= file_field_tag :file, class: "absolute inset-0 w-full h-full opacity-0 cursor-pointer" %>
+        <div class="px-4 py-2 bg-white rounded-lg shadow-md border border-gray-200 text-gray-500 hover:text-gray-700 hover:border-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-all duration-300 ease-in-out cursor-pointer">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mb-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6v6m0 0v6m0-6h6m-6 0H6"/>
+          </svg>
+          <span class="text-sm font-medium">Choose a file</span>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="mt-4 bg-blue-500 hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-lg shadow-md transition-all duration-300 ease-in-out">
+      Import
+    </button>
+    <% end %>
+  </div>
+  <%= link_to "Show Keywords based on criteria", criteria_keywords_campaigns_path, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+  <div class="flex justify-between items-center">
+    <h1 class="font-bold text-4xl">Campaigns</h1>
+  </div>
+
+  <div class="overflow-x-auto">
+    <table class="min-w-full divide-y-2 divide-gray-200 bg-white text-sm">
+      <thead class="">
+        <tr>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            Id
+          </th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            Name
+          </th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            Start Date
+          </th>
+          <th class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+            Budget
+          </th>
+          <th class="px-4 py-2"></th>
+        </tr>
+      </thead>
+
+      <tbody class="divide-y divide-gray-200">
+        <%= render @campaigns %>
+      </tbody>
+    </table>
+  </div>
+</div>

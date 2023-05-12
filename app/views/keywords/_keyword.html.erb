@@ -1,0 +1,25 @@
+<tr id="<%= dom_id keyword %>" class= 'text-center'>
+  <% if action_name == 'criteria_keywords' %>
+    <% ad_group = keyword.ad_group %>
+    <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+    <%= keyword.ad_group.campaign.name %></td>
+    <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+    <%= keyword.ad_group.name %></td>
+  <% end %>
+  <td class="whitespace-nowrap px-4 py-2 font-medium text-gray-900">
+    <%= keyword.id %></td>
+  <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= keyword.text %></td>
+  <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= keyword.match_type %></td>
+  <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= keyword.spend %></td>
+  <td class="whitespace-nowrap px-4 py-2 text-gray-700"><%= keyword.sales %></td>
+  <td class="whitespace-nowrap px-4 py-2">
+  <% if action_name != "show" %>
+    <% if @campaign.present? %>
+      <%= link_to "Show Details", campaign_ad_group_keyword_path(@campaign, @ad_group, keyword), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% else %>
+      <%= link_to "Show Details", campaign_ad_group_keyword_path(ad_group.campaign, ad_group, keyword), class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
+  <% end %>
+
+  </td>
+</tr>
