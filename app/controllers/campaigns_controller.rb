@@ -64,7 +64,7 @@ class CampaignsController < ApplicationController
     header = xlsx.row(1)
     (2..xlsx.last_row).each do |i|
       row = Hash[[header, xlsx.row(i)].transpose]
-      @campaign = Campaign.find_or_create_by(id: row['Campaign Id'], name: row['Campaign Name'], budget: row['Daily Budget']) if(row['Entity'].eql? 'Campaign')
+      @campaign = Campaign.find_or_create_by(id: row['Campaign Id'], name: row['Campaign Name'], budget: row['Daily Budget'], start_date: Date.parse(row['Start Date'])) if(row['Entity'].eql? 'Campaign')
       @ad_group = @campaign.ad_groups.find_or_create_by(id: row['Ad Group Id'], name: row['Ad Group Name'], default_bid: row['Ad Group Default Bid']) if(row['Entity'].eql? 'Ad Group')
       @ad_group.keywords.find_or_create_by(id: row['Keyword Id (Read only)'], text: row['Keyword Text'], bid: row['Bid'], match_type: row['Match Type'], impressions: row['Impressions'], clicks: row['Clicks'], ctr: row['Click-through Rate'],
                                spend: row['Spend'], sales: row['Sales'], orders: row['Orders'], units: row['Units'], cr: row['Coversion Rate'],
